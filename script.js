@@ -19,7 +19,7 @@ startGame();
 
 function startGame() {
   for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener("click",function(e){
+    cells[i].addEventListener("click",function(){
         const cellIndex = this.getAttribute("index");
 
         if (marker[cellIndex] != "" || !running) {
@@ -34,6 +34,7 @@ function startGame() {
   gameStatus.innerText = `${currentPlayer}'s turn`;
   running = true;
 }
+/** function to update each cell in the game */
 function updateCell(cell, index) {
   marker[index] = currentPlayer;
   cell.innerText = currentPlayer;
@@ -66,6 +67,7 @@ function checkWinner() {
     changePlayerTurn();
   }
 }
+/** function to change player turn "switch between x and 0" */
 function changePlayerTurn() {
     if (currentPlayer === "X") {
       currentPlayer = "O";
@@ -74,6 +76,7 @@ function changePlayerTurn() {
     }
     gameStatus.innerText = `${currentPlayer}'s turn`;
 }
+/**function to restart game everytime restart button is pressed */
 function restartGame() {
   currentPlayer = "X";
   marker = ["", "", "", "", "", "", "", "", ""];
