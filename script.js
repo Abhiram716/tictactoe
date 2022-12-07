@@ -51,19 +51,21 @@ function updateCell(cell, index) {
   marker[index] = currentPlayer;
   cell.innerText = currentPlayer;
 }
+
+/**function to check winner of the game */
 function checkWinner() {
   let gameWon = false;
 
   for (let i = 0; i < winCondition.length; i++) {
-    const condition = winCondition[i];
-    const cellA = marker[condition[0]];
-    const cellB = marker[condition[1]];
-    const cellC = marker[condition[2]];
+    let condition = winCondition[i];
+    let cellA = marker[condition[0]];
+    let cellB = marker[condition[1]];
+    let cellC = marker[condition[2]];
 
-    if (cellA == "" || cellB == "" || cellC == "") {
+    if (cellA === "" || cellB === "" || cellC === "") {
       continue;
     }
-    if (cellA == cellB && cellB == cellC) {
+    if (cellA === cellB && cellB === cellC) {
       gameWon = true;
       break;
     }
